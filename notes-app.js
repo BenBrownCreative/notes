@@ -1,22 +1,32 @@
-const notes = [{
-    title: 'my next trip',
-    body: 'I would like to go to Spain'
-}, {
-    title: 'habits to work on',
-    body: 'exercise, eating healthy'
-}, {
-    title: 'modify office',
-    body: 'buy new monitor'
-}];
+const notes = getSavedNotes();
 
-localStorage.setItem('name', 'ben');
+const filters = {
+    searchText: ''
+};
 
-document.querySelector('button').addEventListener('click', function(e) {
-    e.target.textContent = 'clicked';
+renderNotes(notes, filters);
+
+document.querySelector('#create-note').addEventListener('click', function(e) {
+    notes.push({
+        title: '',
+        body: ''
+    })
+
+    saveToLocalStorage('notes', notes);
+    renderNotes(notes, filters);
 });
 
-document.querySelector('#name-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    console.log(e.target.elements.firstName.value);
-    e.target.elements.firstName.value = '';
-})
+document.querySelector('#search-text').addEventListener('input', function (e) {
+    filters.searchText = e.target.value;
+    renderNotes(notes, filters);
+});
+
+document.querySelector('#filter-by').addEventListener('change', function(e) {
+    console.log(e.target.value);
+});
+
+// document.querySelector('#filter-by').addEventListener('submit', function(e) {
+//     e.preventDefault();
+//     console.log(e.target.elements.firstName.value);
+//     e.target.elements.firstName.value = '';
+// })
