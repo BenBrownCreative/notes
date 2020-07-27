@@ -1,4 +1,4 @@
-const notes = getSavedNotes();
+let notes = getSavedNotes();
 
 const filters = {
     searchText: ''
@@ -8,6 +8,7 @@ renderNotes(notes, filters);
 
 document.querySelector('#create-note').addEventListener('click', function(e) {
     notes.push({
+        id: uuidv4(),
         title: '',
         body: ''
     })
@@ -23,6 +24,13 @@ document.querySelector('#search-text').addEventListener('input', function (e) {
 
 document.querySelector('#filter-by').addEventListener('change', function(e) {
     console.log(e.target.value);
+});
+document.getElementById('notes').addEventListener('click', function(e) {
+    if (e.target.className != 'remove') return;
+    const parentId = e.target.parentElement.dataset.id;
+    removeNote(parentId);
+    renderNotes(notes, filters);
+    saveToLocalStorage('notes', notes);
 });
 
 // document.querySelector('#filter-by').addEventListener('submit', function(e) {

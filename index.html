@@ -5,20 +5,19 @@
         <h1>notes app</h1>
         <h2>take notes and never forget</h2>
 
-        
         <form id='name-form'>
             <input type='text' id='search-text' placeholder="filter notes" name="search"></input>
             <button type="submit" id='filter-by' value="Submit">Submit</button>
         </form>
 
-        <div id='notes'>
-
-        </div>
-
+        <div id='notes'></div>
         <button id='create-note'>create note</button>
     </body>
 
     <footer>
+        <!-- create unique id https://github.com/uuidjs/uuid -->
+        <script src="https://wzrd.in/standalone/uuid%2Fv4@latest"></script>
+        <!-- my scripts -->
         <script src='notes-functions.js'></script>
         <script src='notes-app.js'></script>
     </footer>

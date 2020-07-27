@@ -19,8 +19,17 @@ const saveToLocalStorage = function(item, value) {
     
 // generate a note for the dom
 const generateNoteDOM = function(note) {
-    const noteEl = document.createElement('p');
-    noteEl.textContent = note.title.length > 0 ? note.title : 'UnNamed note';
+    // create wrapper
+    const noteEl = document.createElement('div');
+    noteEl.dataset.id = note.id;
+    // add template
+    const markup = `
+        <button class="remove">x</button>
+        <span>${note.title.length > 0 ? note.title : 'UnNamed note'}<span>
+    `;
+    
+    // add and return html
+    noteEl.innerHTML = markup;
     return noteEl;
 }
 
@@ -35,4 +44,9 @@ const renderNotes = function(notes, filters) {
         const noteEl = generateNoteDOM(note);      
         document.querySelector('#notes').appendChild(noteEl);  
     });
+}
+
+// remove a note by id
+const removeNote = function(id) {
+    notes = notes.filter(x => x.id !== id);
 }
