@@ -25,7 +25,7 @@ const generateNoteDOM = function(note) {
     // add template
     const markup = `
         <button class="remove">x</button>
-        <span>${note.title.length > 0 ? note.title : 'UnNamed note'}<span>
+        <a href='/edit.html#${note.id}'>${note.title.length > 0 ? note.title : 'UnNamed note'}<a>
     `;
     
     // add and return html
