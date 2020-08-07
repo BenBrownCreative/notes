@@ -1,17 +1,40 @@
 <!DOCTYPE html>
 <html>
-    <head></head>
+    <head>
+        <!-- google material icons -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+        <!-- my css -->
+        <link href='css/main.css' rel='stylesheet' />
+    </head>
     <body>
-        <a href='/index.html'>home</a>
+        <header>
+            <a href='/index.html'>home</a>
+            <span id='note-lastEdited' class='lastEdited'>
+                <span>last edited </span>
+                <span id='note-fromTime'></span>
+            </span>
+        </header>
+        <div class='noteWrapper'>
+            <div>
+                <label for='note-title'>Title</label>
+                <input id='note-title' placeholder='Note title' type='text' />
+            </div>
 
-        <input id='note-title' placeholder='Note title'>
-        <textarea id='note-body' placeholder="Enter note text"></textarea>
-        <button id='remove-note'>remove note</button>
+            <div>
+                <label for='note-body'>Body</label>
+                <textarea id='note-body' placeholder="Enter note text"></textarea>
+            </div>
+
+            <button id='remove-note'>remove note</button>
+        </div>
         
     </body>
 
     <footer>
-       <script src='notes-functions.js'></script>
-       <script src='notes-edit.js'></script>
+        <!-- format time and date https://momentjs.com/docs/ -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment-with-locales.min.js" integrity="sha512-qSnlnyh7EcD3vTqRoSP4LYsy2yVuqqmnkM9tW4dWo6xvAoxuVXyM36qZK54fyCmHoY1iKi9FJAUZrlPqmGNXFw==" crossorigin="anonymous"></script>
+        <!-- my scripts -->
+        <script src='js/notes-functions.js'></script>
+        <script src='js/notes-edit.js'></script>
     </footer>
 </html>

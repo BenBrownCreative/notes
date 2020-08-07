@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html>
-    <head></head>
+    <head>
+        <!-- google material icons -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+        <!-- my css -->
+        <link href='css/main.css' rel='stylesheet' />
+    </head>
     <body>
         <h1>notes app</h1>
         <h2>take notes and never forget</h2>
@@ -16,9 +21,12 @@
 
     <footer>
         <!-- create unique id https://github.com/uuidjs/uuid -->
-        <script src="https://wzrd.in/standalone/uuid%2Fv4@latest"></script>
+        <!-- <script src="https://wzrd.in/standalone/uuid%2Fv4@latest"></script> -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.1.0/uuidv4.min.js"></script>
+        <!-- format time and date https://momentjs.com/docs/ -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment-with-locales.min.js" integrity="sha512-qSnlnyh7EcD3vTqRoSP4LYsy2yVuqqmnkM9tW4dWo6xvAoxuVXyM36qZK54fyCmHoY1iKi9FJAUZrlPqmGNXFw==" crossorigin="anonymous"></script>
         <!-- my scripts -->
-        <script src='notes-functions.js'></script>
-        <script src='notes-app.js'></script>
+        <script src='js/notes-functions.js'></script>
+        <script src='js/notes-app.js'></script>
     </footer>
 </html>

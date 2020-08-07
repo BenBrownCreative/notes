@@ -50,3 +50,9 @@ const renderNotes = function(notes, filters) {
 const removeNote = function(id) {
     notes = notes.filter(x => x.id !== id);
 }
+
+// update the note timestamp
+const updateNotesInStorage = function(note, notes) {
+    note.updatedAt = moment().valueOf();
+    saveToLocalStorage('notes', notes);
+}
