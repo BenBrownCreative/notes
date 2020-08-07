@@ -33,12 +33,31 @@ const generateNoteDOM = function(note) {
     return noteEl;
 }
 
+// sort the notes
+const sortNotes = function(notes, sortBy) {
+
+    if (sortBy === 'byEdited') {
+        return notes.sort((a, b) => a.updatedAt > b.updatedAt ? -1 : +1);
+    }
+    else if (sortBy === 'byCreated') {
+        return notes.sort((a, b) => a.createdAt > b.createdAt ? -1 : +1);
+    }
+    else if (sortBy === 'alphabetially') {
+        return notes.sort((a, b) => a.title.toLowerCase() < b.title.toLowerCase() ? -1 : +1)
+    } 
+    else {
+        return notes
+    }
+
+}
+
 // render application notes
 const renderNotes = function(notes, filters) {
+    notes = sortNotes(notes, filters.sortBy);
     const filteredNotes = notes.filter(function (note) {
         return note.title.toLowerCase().includes(filters.searchText.toLowerCase())
-    })
-    document.querySelector('#notes').innerHTML = ''
+    });
+    document.querySelector('#notes').innerHTML = '';
 
     filteredNotes.forEach(function (note) {
         const noteEl = generateNoteDOM(note);      
